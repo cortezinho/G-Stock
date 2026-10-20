@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Equipamentos & Vendas</title>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Fonte Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Customizado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Container Toast para Notificações -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Cabeçalho Principal -->
+    <header class="app-header">
+        <div class="container header-content">
+            
+            <!-- Logo & Title -->
+            <div class="brand">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-microchip"></i>
+                </div>
+                <div>
+                    <h1>Gerenciador de Estoque & Vendas</h1>
+                    <p>Powered by Gabriel Cortez</p>
+                </div>
+                
+                <!-- Backup Mobile -->
+                <div class="mobile-actions">
+                    <button type="button" id="btn-export-mobile" class="btn-icon" title="Exportar backup">
+                        <i class="fa-solid fa-download"></i>
+                    </button>
+                    <label class="btn-icon cursor-pointer" title="Importar backup">
+                        <i class="fa-solid fa-upload"></i>
+                        <input type="file" id="import-file-mobile" accept=".json" class="hidden">
+                    </label>
+                </div>
+            </div>
+
+            <!-- Navegação Abas -->
+            <nav class="tab-nav">
+                <button id="btn-tab-estoque" data-tab="estoque" class="tab-btn active">
+                    <i class="fa-solid fa-boxes-stacked"></i> <span>Estoque</span>
+                </button>
+                <button id="btn-tab-vendas" data-tab="vendas" class="tab-btn">
+                    <i class="fa-solid fa-cart-shopping"></i> <span>Registrar Venda</span>
+                </button>
+                <button id="btn-tab-historico" data-tab="historico" class="tab-btn">
+                    <i class="fa-solid fa-clock-rotate-left"></i> <span>Histórico</span>
+                </button>
+            </nav>
+
+            <!-- Ações Globais Desktop -->
+            <div class="desktop-actions">
+                <button type="button" id="btn-export" class="btn btn-outline-light">
+                    <i class="fa-solid fa-download"></i> <span>Backup</span>
+                </button>
+                <label class="btn btn-outline-light cursor-pointer">
+                    <i class="fa-solid fa-upload"></i> <span>Restaurar</span>
+                    <input type="file" id="import-file" accept=".json" class="hidden">
+                </label>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container main-content">
+
+        <!-- TAB 1: ESTOQUE -->
+        <section id="tab-estoque" class="tab-content active">
+            <div class="toolbar card">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-product" placeholder="Buscar Produto, identificação ou nº de série...">
+                </div>
+                <div class="toolbar-actions">
+                    <span id="stock-counter" class="badge">Total em estoque: 0 itens</span>
+                    <button type="button" id="btn-open-modal-add" class="btn btn-primary">
+                        <i class="fa-solid fa-plus"></i> <span>Novo Item</span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="card table-wrapper">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Produto</th>
+                            <th>Identificação</th>
+                            <th>Número de Série</th>
+                            <th class="text-center">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="products-table-body"></tbody>
+                </table>
+                <div id="empty-products" class="empty-state hidden">
+                    <i class="fa-solid fa-box-open"></i>
+                    <p>Nenhum item cadastrado ou encontrado no estoque.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 2: REGISTRAR VENDA -->
+        <section id="tab-vendas" class="tab-content hidden">
+            <div class="grid-layout">
+                <!-- Seleção de Produtos -->
+                <div class="card col-span-2">
+                    <h2 class="section-title">
+                        <i class="fa-solid fa-list-check text-primary"></i>
+                        <span>Selecionar Itens para Venda</span>
+                    </h2>
+
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="search-sale-product" placeholder="Buscar por Produto, ID ou nº de série...">
+                    </div>
+
+                    <div class="scrollable-table">
+                        <table id="sale-products-table" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Produto</th>
+                                    <th>Identificação</th>
+                                    <th>Número de Série</th>
+                                    <th class="text-center">Ação</th>
+                                </tr>
+                            </thead>
+                            <tbody id="sale-products-table-body"></tbody>
+                        </table>
+                        <div id="empty-sale-products" class="empty-state hidden">
+                            <i class="fa-solid fa-box-open"></i>
+                            <p>Nenhum equipamento cadastrado ou disponível para venda.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulário de Venda / Carrinho -->
+                <div class="card flex-column">
+                    <div class="cart-header">
+                        <h2 class="section-title m-0">
+                            <i class="fa-solid fa-file-invoice text-primary"></i>
+                            <span>Dados da Venda</span>
+                        </h2>
+                        <button type="button" id="btn-clear-cart" class="btn-text-danger">Limpar</button>
+                    </div>
+
+                    <div class="form-group-bg">
+                        <div class="input-group">
+                            <label for="sale-client-name">Nome do Cliente *</label>
+                            <input type="text" id="sale-client-name" placeholder="Ex: Empresa ABC Ltda">
+                        </div>
+                        <div class="input-group">
+                            <label for="sale-op-number">Nº Ordem de Produção (OP) *</label>
+                            <input type="text" id="sale-op-number" placeholder="Ex: OP-2026-089">
+                        </div>
+                    </div>
+
+                    <div class="cart-items-section flex-grow">
+                        <h3 class="subsection-title">Itens Selecionados</h3>
+                        <div id="cart-items" class="cart-list"></div>
+
+                        <div id="cart-empty-state" class="empty-state small">
+                            <i class="fa-solid fa-basket-shopping"></i>
+                            <p>Nenhum equipamento selecionado.</p>
+                        </div>
+                    </div>
+
+                    <div class="cart-footer">
+                        <div class="cart-total">
+                            <span>Total de Equipamentos:</span>
+                            <span id="cart-total-items" class="total-number">0</span>
+                        </div>
+                        <button type="button" id="btn-checkout" class="btn btn-success block" disabled>
+                            <i class="fa-solid fa-check"></i> <span>Concluir Venda e Dar Baixa</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB 3: HISTÓRICO DE VENDAS -->
+        <section id="tab-historico" class="tab-content hidden">
+            <div class="card">
+                <div class="toolbar mb-4">
+                    <h2 class="section-title m-0">
+                        <i class="fa-solid fa-clock-rotate-left text-primary"></i>
+                        <span>Registro de Vendas Realizadas</span>
+                    </h2>
+                    <div class="toolbar-actions">
+                        <input type="text" id="search-history" placeholder="Buscar por Cliente, OP ou ID..." class="input-standard">
+                        <span id="sales-history-count" class="badge">0 vendas</span>
+                    </div>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>ID Venda / Data</th>
+                                <th>Cliente</th>
+                                <th>Nº OP</th>
+                                <th>Equipamentos Vendidos</th>
+                                <th class="text-center">Ação</th>
+                            </tr>
+                        </thead>
+                        <tbody id="sales-history-table-body"></tbody>
+                    </table>
+                </div>
+
+                <div id="empty-history" class="empty-state hidden">
+                    <i class="fa-solid fa-folder-open"></i>
+                    <p>Nenhuma venda registrada até o momento.</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Modal Adicionar / Editar Produto -->
+    <div id="product-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modal-title">Cadastrar Item no Estoque</h3>
+                <button type="button" id="btn-close-modal" class="btn-close">&times;</button>
+            </div>
+            
+            <form id="form-product" class="modal-body">
+                <input type="hidden" id="product-id">
+
+                <div class="input-group">
+                    <label for="product-model">Produto</label>
+                    <input type="text" id="product-model" list="models-list" required>
+                    <datalist id="models-list">
+                        <option value="IDAC-35"></option>
+                        <option value="ICAL-200"></option>
+                        <option value="ITEG-2000B"></option>
+                        <option value="ITEG-2000"></option>
+                    </datalist>
+                </div>
+
+                <div class="input-group">
+                    <label for="product-identification">Identificação</label>
+                    <input type="text" id="product-identification" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="product-serial">Número de Série</label>
+                    <input type="text" id="product-serial" required>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" id="btn-cancel-modal" class="btn btn-outline">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação Customizado -->
+    <div id="confirm-modal" class="modal-overlay hidden">
+        <div class="modal-content modal-sm text-center">
+            <div class="modal-icon text-danger">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3 id="confirm-modal-title" class="mb-2">Confirmação</h3>
+            <p id="confirm-modal-msg" class="text-muted mb-4">Tem certeza que deseja realizar esta ação?</p>
+            <div class="modal-actions-center">
+                <button type="button" id="btn-confirm-cancel" class="btn btn-outline">Cancelar</button>
+                <button type="button" id="btn-confirm-ok" class="btn btn-danger">Confirmar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
