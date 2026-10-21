@@ -1,0 +1,366 @@
+{
+  "products": [
+    {
+      "id": "1",
+      "model": "IDAC-35",
+      "identification": "142",
+      "serialNumber": "3926-62848"
+    },
+    {
+      "id": "2",
+      "model": "ICAL-200",
+      "identification": "96",
+      "serialNumber": "3926-62859"
+    },
+    {
+      "id": "3",
+      "model": "ITEG-2000B",
+      "identification": "09",
+      "serialNumber": "4924-61215"
+    },
+    {
+      "id": "4",
+      "model": "ITEG-2000",
+      "identification": "40",
+      "serialNumber": "4825-62178"
+    },
+    {
+      "id": "1792603735796",
+      "model": "IDAC-35",
+      "identification": "143",
+      "serialNumber": "3926-62849"
+    },
+    {
+      "id": "1792603765884",
+      "model": "IDAC-35",
+      "identification": "147",
+      "serialNumber": "3926-62850"
+    },
+    {
+      "id": "1792603784435",
+      "model": "IDAC-35",
+      "identification": "148",
+      "serialNumber": "3926-62851"
+    },
+    {
+      "id": "1792603804659",
+      "model": "IDAC-35",
+      "identification": "149",
+      "serialNumber": "3926-62852"
+    },
+    {
+      "id": "1792603824419",
+      "model": "IDAC-35",
+      "identification": "150",
+      "serialNumber": "3926-62853"
+    },
+    {
+      "id": "1792603840051",
+      "model": "IDAC-35",
+      "identification": "151",
+      "serialNumber": "3926-62854"
+    },
+    {
+      "id": "1792603853101",
+      "model": "IDAC-35",
+      "identification": "152",
+      "serialNumber": "3926-62855"
+    },
+    {
+      "id": "1792603879354",
+      "model": "IDAC-35",
+      "identification": "153",
+      "serialNumber": "3926-62856"
+    },
+    {
+      "id": "1792603925979",
+      "model": "IDAC-35",
+      "identification": "154",
+      "serialNumber": "4326-62944"
+    },
+    {
+      "id": "1792603944243",
+      "model": "IDAC-35",
+      "identification": "155",
+      "serialNumber": "4326-62945"
+    },
+    {
+      "id": "1792603983186",
+      "model": "IDAC-35",
+      "identification": "156",
+      "serialNumber": "4326-62946"
+    },
+    {
+      "id": "1792604001962",
+      "model": "IDAC-35",
+      "identification": "157",
+      "serialNumber": "4326-62947"
+    },
+    {
+      "id": "1792604018058",
+      "model": "IDAC-35",
+      "identification": "158",
+      "serialNumber": "4326-62948"
+    },
+    {
+      "id": "1792604033449",
+      "model": "IDAC-35",
+      "identification": "159",
+      "serialNumber": "4326-62949"
+    },
+    {
+      "id": "1792604059065",
+      "model": "IDAC-35",
+      "identification": "160",
+      "serialNumber": "4326-62950"
+    },
+    {
+      "id": "1792604111169",
+      "model": "IDAC-35",
+      "identification": "161",
+      "serialNumber": "4326-62951"
+    },
+    {
+      "id": "1792604141922",
+      "model": "DAC-35",
+      "identification": "162",
+      "serialNumber": "4326-62952"
+    },
+    {
+      "id": "1792604166041",
+      "model": "IDAC-35",
+      "identification": "163",
+      "serialNumber": "4326-62957"
+    },
+    {
+      "id": "1792604186593",
+      "model": "IDAC-35",
+      "identification": "164",
+      "serialNumber": "4326-62958"
+    },
+    {
+      "id": "1792604376768",
+      "model": "ICAL-200",
+      "identification": "97",
+      "serialNumber": "3926-62860"
+    },
+    {
+      "id": "1792604412543",
+      "model": "ICAL-200",
+      "identification": "98",
+      "serialNumber": "3926-62861"
+    },
+    {
+      "id": "1792605117371",
+      "model": "ICAL-200",
+      "identification": "99",
+      "serialNumber": "3926-62862"
+    },
+    {
+      "id": "1792605146410",
+      "model": "ICAL-200",
+      "identification": "100",
+      "serialNumber": "3926-62863"
+    },
+    {
+      "id": "1792605721223",
+      "model": "ICAL-200",
+      "identification": "101",
+      "serialNumber": "3926-62864"
+    },
+    {
+      "id": "1792605740126",
+      "model": "ICAL-200",
+      "identification": "102",
+      "serialNumber": "3926-62865"
+    },
+    {
+      "id": "1792605766526",
+      "model": "ICAL-200",
+      "identification": "103",
+      "serialNumber": "3926-62866"
+    },
+    {
+      "id": "1792605921909",
+      "model": "ICAL-200",
+      "identification": "104",
+      "serialNumber": "3926-62867"
+    },
+    {
+      "id": "1792605947644",
+      "model": "ICAL-200",
+      "identification": "105",
+      "serialNumber": "3926-62868"
+    },
+    {
+      "id": "1792605971068",
+      "model": "ICAL-200",
+      "identification": "106",
+      "serialNumber": "3926-62869"
+    },
+    {
+      "id": "1792606017412",
+      "model": "ICAL-200",
+      "identification": "107",
+      "serialNumber": "3926-62870"
+    },
+    {
+      "id": "1792606036444",
+      "model": "ICAL-200",
+      "identification": "108",
+      "serialNumber": "3926-62871"
+    },
+    {
+      "id": "1792606541480",
+      "model": "ITEG-2000B",
+      "identification": "05",
+      "serialNumber": "4924-61211"
+    },
+    {
+      "id": "1792606577504",
+      "model": "ITEG-2000B",
+      "identification": "35",
+      "serialNumber": "4825-62180"
+    },
+    {
+      "id": "1792606656767",
+      "model": "ITEG-2000B",
+      "identification": "36",
+      "serialNumber": "4825-62181"
+    },
+    {
+      "id": "1792606668823",
+      "model": "ITEG-2000B",
+      "identification": "37",
+      "serialNumber": "4825-62182"
+    },
+    {
+      "id": "1792606683747",
+      "model": "ITEG-2000B",
+      "identification": "38",
+      "serialNumber": "4825-62183"
+    }
+  ],
+  "sales": [
+    {
+      "id": "VENDA-721273",
+      "date": "21/10/2026, 15:18:41",
+      "clientName": "TMS Importadora",
+      "opNumber": "432",
+      "items": [
+        {
+          "id": "1792606407693",
+          "model": "ITEG-2000",
+          "identification": "39",
+          "serialNumber": "4825-62177"
+        }
+      ]
+    },
+    {
+      "id": "VENDA-358827",
+      "date": "21/10/2026, 15:12:38",
+      "clientName": "Junior Fernandes",
+      "opNumber": "439/440",
+      "items": [
+        {
+          "id": "1792604287088",
+          "model": "ICAL-200",
+          "identification": "95",
+          "serialNumber": "3926-62858"
+        },
+        {
+          "id": "1792601844905",
+          "model": "IDAC-35",
+          "identification": "136",
+          "serialNumber": "3926-62842"
+        }
+      ]
+    },
+    {
+      "id": "VENDA-304356",
+      "date": "21/10/2026, 15:11:44",
+      "clientName": "André Bonfilho",
+      "opNumber": "436/437",
+      "items": [
+        {
+          "id": "1792601745938",
+          "model": "IDAC-35",
+          "identification": "135",
+          "serialNumber": "3926-62841"
+        },
+        {
+          "id": "1792604268008",
+          "model": "ICAL-200",
+          "identification": "94",
+          "serialNumber": "3926-62857"
+        }
+      ]
+    },
+    {
+      "id": "VENDA-691677",
+      "date": "21/10/2026, 14:28:11",
+      "clientName": "Primo Sergio",
+      "opNumber": "450",
+      "items": [
+        {
+          "id": "1792601870449",
+          "model": "IDAC-35",
+          "identification": "137",
+          "serialNumber": "3926-62843"
+        },
+        {
+          "id": "1792602020200",
+          "model": "IDAC-35",
+          "identification": "138",
+          "serialNumber": "3926-62844"
+        },
+        {
+          "id": "1792602049344",
+          "model": "IDAC-35",
+          "identification": "139",
+          "serialNumber": "3926-62845"
+        },
+        {
+          "id": "1792602090255",
+          "model": "IDAC-35",
+          "identification": "140",
+          "serialNumber": "3926-62846"
+        },
+        {
+          "id": "1792602107479",
+          "model": "IDAC-35",
+          "identification": "141",
+          "serialNumber": "3926-62847"
+        }
+      ]
+    },
+    {
+      "id": "VENDA-611902",
+      "date": "21/10/2026, 14:26:51",
+      "clientName": "RBM Gestão",
+      "opNumber": "431",
+      "items": [
+        {
+          "id": "1792601721859",
+          "model": "IDAC-35",
+          "identification": "134",
+          "serialNumber": "3926-62840"
+        }
+      ]
+    },
+    {
+      "id": "VENDA-724131",
+      "date": "21/10/2026, 14:12:04",
+      "clientName": "ST Metrologia",
+      "opNumber": "422",
+      "items": [
+        {
+          "id": "1792601679057",
+          "model": "IDAC-35",
+          "identification": "133",
+          "serialNumber": "3926-62839"
+        }
+      ]
+    }
+  ]
+}
