@@ -171,7 +171,8 @@
             elements.productsTableBody.appendChild(fragment);
         }
 
-        elements.stockCounter.textContent = `Total em estoque: ${products.length} itens`;
+        // elements.stockCounter.textContent = `Total em estoque: ${products.length} itens`;
+        elements.stockCounter.textContent = `Total em estoque: ${filtered.length} itens`;
     };
 
     const openProductModal = (productId = null) => {
@@ -555,7 +556,7 @@
         if (elements.btnExport) elements.btnExport.addEventListener('click', exportData);
         if (elements.importFile) elements.importFile.addEventListener('change', importData);
         if (elements.btnExportMobile) elements.btnExportMobile.addEventListener('click', exportData);
-        if (elements.importFileMobile) elements.importFileMobile.addEventListener('change', importData);
+        if (elements.importFileMobile) elements.importFileMobile.addEventListener('change', importData);ch-box
 
         elements.btnConfirmCancel.addEventListener('click', closeConfirmModal);
         elements.btnConfirmOk.addEventListener('click', () => {

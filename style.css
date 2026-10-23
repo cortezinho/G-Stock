@@ -43,6 +43,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
+    overflow: hidden;
 }
 
 /* Scrollbar Customizada */
@@ -277,6 +278,7 @@ body {
 .search-box {
     position: relative;
     width: 50%;
+    /* margin-bottom: 1rem; */
 }
 
 .search-box i {
