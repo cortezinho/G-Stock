@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciador de Equipamentos & Vendas</title>
-    
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Fonte Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- CSS Customizado -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Container Toast para Notificações -->
@@ -24,7 +26,7 @@
     <!-- Cabeçalho Principal -->
     <header class="app-header">
         <div class="container header-content">
-            
+
             <!-- Logo & Title -->
             <div class="brand">
                 <div class="logo-icon">
@@ -34,7 +36,7 @@
                     <h1>Gerenciador de Estoque & Vendas</h1>
                     <p>Powered by Gabriel Cortez</p>
                 </div>
-                
+
                 <!-- Backup Mobile -->
                 <div class="mobile-actions">
                     <button type="button" id="btn-export-mobile" class="btn-icon" title="Exportar backup">
@@ -81,7 +83,8 @@
             <div class="toolbar card">
                 <div class="search-box">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="search-product" placeholder="Buscar Produto, identificação ou nº de série...">
+                    <input type="text" id="search-product"
+                        placeholder="Buscar Produto, identificação ou nº de série...">
                 </div>
                 <div class="toolbar-actions">
                     <span id="stock-counter" class="badge">Total em estoque: 0 itens</span>
@@ -91,18 +94,33 @@
                 </div>
             </div>
 
-            <div class="card table-wrapper">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Produto</th>
-                            <th>Identificação</th>
-                            <th>Número de Série</th>
-                            <th class="text-center">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody id="products-table-body"></tbody>
-                </table>
+            <div class="toolbar mb-4">
+                <div class="toolbar-actions" id="container-filtros">
+                    <button type="button" class="btn btn-outline btn-filtro"
+                        onclick="filtrarProdutos(this, 'IDAC-35')">IDAC-35</button>
+                    <button type="button" class="btn btn-outline btn-filtro"
+                        onclick="filtrarProdutos(this, 'ICAL-200')">ICAL-200</button>
+                    <button type="button" class="btn btn-outline btn-filtro"
+                        onclick="filtrarProdutos(this, 'ITEG-2000')">ITEG-2000/B</button>
+                    <button type="button" class="btn btn-primary btn-filtro"
+                        onclick="filtrarProdutos(this, 'TODOS')">Mostrar Todos</button>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="table-wrapper scrollable-table" style="max-height: 600px;">
+                    <table class="table" id="tabela-estoque">
+                        <thead>
+                            <tr>
+                                <th>Produto</th>
+                                <th>Identificação</th>
+                                <th>Número de Série</th>
+                                <th class="text-center">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody id="products-table-body"></tbody>
+                    </table>
+                </div>
                 <div id="empty-products" class="empty-state hidden">
                     <i class="fa-solid fa-box-open"></i>
                     <p>Nenhum item cadastrado ou encontrado no estoque.</p>
@@ -122,7 +140,8 @@
 
                     <div class="search-box">
                         <i class="fa-solid fa-magnifying-glass"></i>
-                        <input type="text" id="search-sale-product" placeholder="Buscar por Produto, ID ou nº de série...">
+                        <input type="text" id="search-sale-product"
+                            placeholder="Buscar por Produto, ID ou nº de série...">
                     </div>
 
                     <div class="scrollable-table">
@@ -197,7 +216,8 @@
                         <span>Registro de Vendas Realizadas</span>
                     </h2>
                     <div class="toolbar-actions">
-                        <input type="text" id="search-history" placeholder="Buscar por Cliente, OP ou ID..." class="input-standard">
+                        <input type="text" id="search-history" placeholder="Buscar por Cliente, OP ou ID..."
+                            class="input-standard">
                         <span id="sales-history-count" class="badge">0 vendas</span>
                     </div>
                 </div>
@@ -233,7 +253,7 @@
                 <h3 id="modal-title">Cadastrar Item no Estoque</h3>
                 <button type="button" id="btn-close-modal" class="btn-close">&times;</button>
             </div>
-            
+
             <form id="form-product" class="modal-body">
                 <input type="hidden" id="product-id">
 
@@ -283,4 +303,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>

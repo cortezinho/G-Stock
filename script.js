@@ -580,4 +580,22 @@
         renderSalesHistory();
     });
 
+    window.filtrarProdutos = (botaoClicado, modeloDesejado) => {
+        const searchInput = document.getElementById('search-product');
+        if (!searchInput) return;
+
+        // Remove a classe azul de todos e devolve o contorno padrão
+        document.querySelectorAll('.btn-filtro').forEach(btn => {
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-outline');
+        });
+
+        // Adiciona a classe azul apenas no botão que foi clicado
+        botaoClicado.classList.remove('btn-outline');
+        botaoClicado.classList.add('btn-primary');
+        
+        // Aplica o filtro na tabela
+        searchInput.value = modeloDesejado === 'TODOS' ? '' : modeloDesejado;
+        searchInput.dispatchEvent(new Event('input'));
+    };
 })();
